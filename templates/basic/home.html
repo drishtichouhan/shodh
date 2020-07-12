@@ -1,0 +1,83 @@
+{% extends "basic/layout.html" %}
+{% block content %}
+<div class="jumbotron">
+ <h1>SHODH</h1>
+ <p class="lead">A platform to showcase research projects by Professors , Students and Clubs</p>
+ {% if user.is_authenticated %}
+   <h4>Welcome {{ user.name }}!</h4>
+   <h4>{{ user.rollnumber }}</h4>
+</div>
+
+<div class="container">
+
+  <br>
+  <div class="card card-body">
+        <h2>All Vacancies</h2>
+        <br>
+        <h6>Click on a Vacancy for more details</h6>
+
+        <div class="accordion" id="accordionExample">
+          {% for d in data %}
+          <div class="card">
+            <div class="card-header" id="{{ d.name }}">
+              <h1 class="mb-0">
+                <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                <h5>{{ d.name }}</h5>
+                </button>
+              </h1>
+            </div>
+
+            <div id= "collapse{{ forloop.counter }}" class="panel-collapse collapse" aria-labelledby="{{ d.name }}" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li  class="list-group-item" >Department :
+                    {{ d.department }}
+
+                  </li>
+                  <li  class="list-group-item" >Professor :
+                    {{ d.prof_name }}
+
+                  </li>
+                  <li  class="list-group-item" >EmailID of Professor :
+                    {{ d.prof_email }}
+
+                  </li>
+                  <li  class="list-group-item">
+                    {% if d.isopen %}
+                      Status : OPEN
+                    {% else %}
+                      Status : CLOSED
+                    {% endif %}
+
+                  </li>
+                  <li  class="list-group-item">
+                    {% if d.isopen %}
+                    <a href="#" class="btn btn-info btn-lg btn-block">Apply for this Vacancy</a>
+                    {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        Sorry this vacancy is presently closed !
+                    </div>
+                    {% endif %}
+                  </li>
+
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          <!-- {% for d in data %}
+          <h6>{{ d.name }}</h6>
+          {% endfor %} -->
+   </div>
+
+</div>
+
+  {% endif %}
+
+
+
+
+{% endblock %}

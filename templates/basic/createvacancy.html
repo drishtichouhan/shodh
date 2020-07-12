@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>CREATE VACANCY</title>
+    <style media="screen">
+
+    .J{
+
+      height: 40% !important;
+      color: rgba(204, 0, 0,0.7) !important;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .F{
+      border-color: rgba(204, 0, 0,0.7) !important;
+      border-width: 7px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      padding-top: 25px !important;
+      padding-bottom  : 0px !important;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .R{
+      position: absolute !important;
+      top: 23% !important;
+      left: 20% !important;
+
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container JC">
+        <h1 class="display-4">| Create a new Vacancy Here</h1>
+      </div>
+    </div>
+    <div class="container R" style="max-width: 100%">
+      <div class="col-md-6" style="max-height: 100%">
+
+          <div class="card text-black  mb-3  F" style="max-width: 100rem">
+            <div class="card-body rounded-0">
+              <h2>Create a vacancy</h2>
+            <form  method="post">
+                <div class="form-group" enctype = "multipart/form-data">
+
+                  {% csrf_token %}
+                  <!-- {{ vacancy_form.as_p}} -->
+                  <div class="form-group">
+                    <label for="name">Vacancy Title</label>
+                    <input type="text" class="form-control" name="name" id="exampleInputEmail1"  placeholder="Enter Vacancy Title">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small> -->
+                  </div>
+
+                  <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" name="department" id="exampleInputEmail1"  placeholder="Enter name of concerned Department">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small> -->
+                  </div>
+                  <br>
+                  <input type="submit" class="btn btn-light btn-outline-info btn-lg"  value="Submit">
+                </div>
+
+              </form>
+
+
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </body>
+</html>

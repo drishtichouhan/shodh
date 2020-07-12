@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <!-- <link rel="stylesheet" href="static\css\index.css"> -->
+  <style media="screen">
+    :root {
+      --container-bg-color: #333;
+      --left-bg-color: rgba(255, 230, 240, 0.2);
+      --left-button-hover-color:rgba(0, 114, 198,0.5);
+      --right-bg-color: rgba(255, 230, 240, 0.2);
+      --right-button-hover-color: rgba(0, 114, 198,0.7);
+      --hover-width: 75%;
+      --other-width: 25%;
+      --speed: 1000ms;
+    }
+
+    /* Style all font awesome icons */
+      /* .fa {
+      padding: 20px;
+      font-size: 30px;
+      position: absolute;
+      left: 50%;
+      top: 62%;
+      width: 30px;
+      text-align: center;
+      border-radius: 70%;
+      text-decoration: none;
+      }
+
+    /* Add a hover effect if you want */
+      /* .fa:hover {
+      opacity: 0.7;
+    } */
+
+    /* Set a specific color for each brand */
+
+    /* Facebook */
+    /* .fa-github {
+      background: #fff;
+      color: #6e5494;
+      position: absolute;
+      left: 70%;
+      top: 70%;
+      transform: translateX(-50%);
+    } */
+
+    /* .fa-google {
+      background: #fff;
+      color: #DD4B39;
+      position: absolute;
+      left: 60%;
+      top: 70%;
+      transform: translateX(-50%);
+    } */
+
+    html, body {
+      padding:0;
+      margin:0;
+      font-family: 'Montserrat';
+
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+
+    }
+
+    .lefth1{
+      font-size: 5rem;
+      color:  rgba(255, 0, 102,0.8);
+      position: absolute;
+      left: 50%;
+      top: 33%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .righth1{
+      font-size: 5rem;
+      color: #3452ce;
+      position: absolute;
+      left: 50%;
+      top: 18%;
+      font-weight: bolder;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    p{
+      align-content: center;
+      font-size: 1rem;
+      color: rgba(0, 0, 0,1);
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .righth4{
+      font-size: 1.5rem;
+      color: rgba(0, 0, 0,0.5);
+      position: absolute;
+      left: 57%;
+      top: 35%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    /* .rightorh4{
+      font-size: 2rem;
+      color: rgba(0, 0, 0,0.7);
+      position: absolute;
+      left: 55%;
+      top: 66%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      transform: translateX(-50%);
+    } */
+
+    .lefth4{
+      font-size: 1.5rem;
+      color: rgba(0, 0, 0,0.7);
+      position: absolute;
+      left: 66%;
+      top:53%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    h5 {
+      font-size: 1rem;
+      color: rgb(0, 0, 0);
+      position: absolute;
+      left: 50%;
+      top: 38%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .btnRP{
+      display: block;
+      position: absolute;
+      left: 50%;
+      border-radius: 50px;
+      top: 57% !important;
+      height: 2.5rem;
+      padding-top: 20px;
+      background-color: #3452ce;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 15rem;
+      text-align: center;
+      color:  #fff;
+      border: #3452ce solid 0.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      transform: translateX(-50%);
+    }
+    .btnR{
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 72% !important;
+      height: 2.5rem;
+      padding-top: 20px;
+      border-radius: 50px;
+      padding-left: 40px;
+      padding-right: 40px;
+      width: 15rem;
+      text-align: center;
+      color:  #3452ce;
+      border: #3452ce solid 0.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      transform: translateX(-50%);
+    }
+
+
+
+    .split.right .btnR:hover {
+      background-color: var(--left-button-hover-color);
+      border-color: var(--left-button-hover-color);
+    }
+
+    .split.right .btnRP:hover {
+      background-color: var(--right-button-hover-color);
+      border-color: var(--right-button-hover-color);
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--container-bg-color);
+    }
+
+    .split {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .split.left {
+      left:0;
+      background: url('https://images.pexels.com/photos/954585/pexels-photo-954585.jpeg?cs=srgb&dl=two-test-tubes-954585.jpg&fm=jpg') center center no-repeat;
+      background-size: cover;
+
+    }
+
+    .split.left:before {
+      position:absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: var(--left-bg-color);
+    }
+
+    .split.right {
+      right:0;
+      background: url('https://images.pexels.com/photos/3740252/pexels-photo-3740252.jpeg?cs=srgb&dl=white-and-silver-computer-keyboard-3740252.jpg&fm=jpg');
+      background-size: cover;
+    }
+
+    .split.right:before {
+      position:absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: var(--right-bg-color);
+    }
+
+    .split.left, .split.right, .split.right:before, .split.left:before {
+      transition: var(--speed) all ease-in-out;
+    }
+
+    .hover-left .left {
+      width: var(--hover-width);
+    }
+
+    .hover-left .right {
+      width: var(--other-width);
+    }
+
+    .hover-left .right:before {
+      z-index: 2;
+    }
+
+
+    .hover-right .right {
+      width: var(--hover-width);
+    }
+
+    .hover-right .left {
+      width: var(--other-width);
+    }
+
+    .hover-right .left:before {
+      z-index: 2;
+    }
+
+    @media(max-width: 800px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .button {
+        width: 12rem;
+      }
+    }
+
+    @media(max-height: 700px) {
+      .button {
+        top: 70%;
+      }
+    }
+
+    .logo{
+      position: absolute !important;
+      left: 43% !important;
+      top: 20% !important;
+      height: 20%;
+      transform: translateX(-50%);
+    }
+
+    .logo1{
+      position: absolute !important;
+      top: 42% !important;
+      left: 63.7% !important;
+      height: 5%;
+      transform: translateX(-50%);
+    }
+
+
+
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+
+      <div class="container">
+        <div class="split left">
+          <h1 class="lefth1"><strong>SODH</strong></h1>
+          <img  class="logo" src="{% static "images\logo.png" %}" alt="">
+          <h5 class="lefth4">A platform to showcase research projects by <br> Professors , Students and Clubs</h5>
+
+
+      </div>
+      <div class="split right">
+        <h1 class="righth1"><strong>LOGIN</strong></h1>
+        <h5 class="righth4">with</h5>
+        <img  class="logo1" src="{% static "images\outlook.png" %}" alt="">
+        <a href="{% url 'signinp' %}" class="button btnRP">Continue as a PROFESSOR</a>
+
+        <a href="{% url 'signins' %}" class="button btnR">Continue as a STUDENT</a>
+        <!-- <h4 class="rightorh4">|</h4> -->
+      </div>
+    </div>
+
+  <script src = "static\split.js"> </script>
+  </body>
+</html>
